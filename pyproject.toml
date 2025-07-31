@@ -1,15 +1,18 @@
 [tool.poetry]
-name = "aporte de ativos"
+name = "aporte-de-ativos"
 version = "0.1.0"
-description = ""
+description = "Sistema de Rebalanceamento de Ativos - Aplicação Streamlit para otimização de carteiras de investimento"
 authors = ["Edu-Vidal <e.vidal.aragao@uol.com.br>"]
 readme = "README.md"
+packages = [{ include = "*.py" }]
+
+[tool.poetry.scripts]
+start = "streamlit run app.py"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = ">=3.9,<3.13"
 streamlit = "^1.47.1"
 pandas = "^2.3.1"
-
 
 [build-system]
 requires = ["poetry-core"]
