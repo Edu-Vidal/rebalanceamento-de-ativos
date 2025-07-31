@@ -10,7 +10,7 @@ packages = [{ include = "*.py" }]
 start = "streamlit run app.py"
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.13"
+python = ">=3.9"
 streamlit = "^1.47.1"
 pandas = "^2.3.1"
 
