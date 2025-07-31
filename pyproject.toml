@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "aporte de ativos"
+version = "0.1.0"
+description = ""
+authors = ["Edu-Vidal <e.vidal.aragao@uol.com.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.47.1"
+pandas = "^2.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
