@@ -249,3 +249,10 @@ st.markdown(
     "💡 **Dica:** O sistema calcula automaticamente as ações necessárias para atingir seus percentuais alvo "
     "com o menor aporte possível, utilizando vendas internas quando benéfico."
 )
+
+def main():
+    """Função principal para execução via Poetry script"""
+    pass
+
+if __name__ == "__main__":
+    main()

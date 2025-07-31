@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "*.py" }]
 
 [tool.poetry.scripts]
-start = "streamlit run app.py"
+start = "app:main"
 
 [tool.poetry.dependencies]
 python = ">=3.13"
