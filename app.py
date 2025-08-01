@@ -4,14 +4,14 @@ from script import calcular_rebalanceamento_otimizado_silencioso
 
 # Configuração da página
 st.set_page_config(
-    page_title="Rebalanceamento de Ativos",
+    page_title="Rebalanceamento de Classes de ativos",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # Título principal
-st.title("📊 Sistema de Rebalanceamento de Ativos")
+st.title("📊 Sistema de Rebalanceamento de Classes de ativos")
 st.markdown("---")
 
 # Inicializar session state
@@ -24,14 +24,14 @@ if 'resultado' not in st.session_state:
 st.sidebar.header("💼 Configuração da Carteira")
 
 # Seção para adicionar/remover ativos
-st.sidebar.subheader("Adicionar Ativo")
+st.sidebar.subheader("Adicionar Classe de Ativos")
 with st.sidebar.form("adicionar_ativo"):
-    nome_ativo = st.text_input("Nome do Ativo", placeholder="Ex: ITSA4")
+    nome_ativo = st.text_input("Nome da Classe de Ativos", placeholder="Ex: Ações nacionais")
     valor_atual = st.number_input("Valor Atual (R$)", min_value=0.0, step=100.0, format="%.2f")
     percentual_alvo = st.number_input("Percentual Alvo (%)", min_value=0.0, max_value=100.0, step=1.0, format="%.2f")
-    
-    submitted = st.form_submit_button("Adicionar Ativo")
-    
+
+    submitted = st.form_submit_button("Adicionar Classe de Ativos")
+
     if submitted and nome_ativo and valor_atual > 0 and percentual_alvo > 0:
         st.session_state.ativos[nome_ativo] = {
             'valor_atual': valor_atual,
@@ -39,9 +39,9 @@ with st.sidebar.form("adicionar_ativo"):
         }
         st.sidebar.success(f"Ativo {nome_ativo} adicionado!")
 
-# Exibir ativos atuais e permitir remoção
+# Exibir classes atuais e permitir remoção
 if st.session_state.ativos:
-    st.sidebar.subheader("Ativos na Carteira")
+    st.sidebar.subheader("Classes na Carteira")
     for ativo in list(st.session_state.ativos.keys()):
         col1, col2 = st.sidebar.columns([3, 1])
         with col1:
@@ -87,9 +87,9 @@ with col2:
         # Seleção de ativos fixos
         ativos_disponiveis = list(st.session_state.ativos.keys())
         ativos_fixos = st.multiselect(
-            "🔒 Ativos Fixos (não serão alterados)",
+            "🔒 Classes Fixas (não serão alteradas)",
             ativos_disponiveis,
-            help="Selecione os ativos que devem manter seu valor atual"
+            help="Selecione as classes que devem manter seu valor atual"
         )
         
         # Botão para calcular
